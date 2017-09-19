@@ -6,7 +6,7 @@ class Bullet(Sprite):
 		super(Bullet, self).__init__()
 		self.screen = screen
 
-		self.rect = pygame.Rect(0,0,5,20)
+		self.rect = pygame.Rect(0,0,25,5)
 		self.color = (255, 255, 255)
 		self.rect.centerx = the_player.rect.right # right side of player's rectangle
 		self.rect.top = the_player.rect.centery - 10 # center of height # centery - 10

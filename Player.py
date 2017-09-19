@@ -50,4 +50,3 @@ class Player(Sprite):
 			# the up key is down. update self.
 			self.should_move_right = yes_or_no
 
-

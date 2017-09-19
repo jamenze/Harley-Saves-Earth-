@@ -13,7 +13,7 @@ class Star(Sprite):
 		self.image = pygame.image.load("star.png")
 		self.image = pygame.transform.scale(self.image,(70,70))
 		self.x = random.randint(500, 800)
-		self.y = random.randint(0,600)
+		self.y = random.randint(100,600)
 		self.speed = 10
 		self.screen = screen
 		self.should_move_up = False

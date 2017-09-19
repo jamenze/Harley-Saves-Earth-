@@ -4,6 +4,7 @@
 # it is NOT part of core. This is a 3rd party module.
 import pygame, sys, random, time
 from pygame.sprite import Group, groupcollide
+global FPSCLOCK, DISPLAYSURF, BASICFONT, BIGFONT, topscore
 
 # -----CUSTOM CLASSES HERE-----
 from Player import Player
@@ -18,11 +19,26 @@ pygame.mixer.pre_init(44100, -16, 2, 2048)
 # Have to init the pygame object so we can use it
 pygame.init()
 pygame.font.init()
+FPSCLOCK = pygame.time.Clock()
+
+
+points = 0
+
+font = pygame.font.Font(None, 25) 
+font2 = pygame.font.Font(None, 30) # Bigger font than font
+
+
+font_color = (255,255,255)
 
 # Screen size is a tuple
 screen_size = (1000,800)
-# Because we are going to paint the background, we need a tuple for the color
-background_color = (169,169,169) # RBG background color
+
+# Load background image
+background_image = pygame.image.load('background.png') 
+# Scale background image (if applicable)
+background_image = pygame.transform.scale(background_image, (1000, 800)) 
+
+
 
 # Create a screen for pygame to use to draw on
 screen = pygame.display.set_mode(screen_size)
@@ -53,6 +69,9 @@ bullets = Group()
 players = Group()
 players.add(the_player)
 
+pygame.mixer.music.load('arcade_music.wav')
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.3)
 
 
 game_on = True
@@ -60,6 +79,8 @@ game_on = True
 while game_on: #will run forever (until break)
 	# Loop through all the pygame events.
 	# This is pygames escape hatch. (Quit)
+
+
 	for event in pygame.event.get():
 		# print event
 		if event.type == pygame.QUIT:
@@ -84,6 +105,11 @@ while game_on: #will run forever (until break)
 				# 32 = SPACE BAR... FIRE!!!!
 				new_bullet = Bullet(screen, the_player, 2)
 				bullets.add(new_bullet)
+				fire = pygame.mixer.Sound("laser.aiff")
+				fire.play(0) # Play sound once
+				fire.set_volume(.3)
+
+
 
 		elif event.type == pygame.KEYUP:
 			if event.key == 273:
@@ -97,8 +123,24 @@ while game_on: #will run forever (until break)
 
 
 	# paint the screen
-	screen.fill(background_color)
+	# screen.fill(background_color)
 
+	# Place the background image
+	screen.blit(background_image, [0,0])
+
+	# Display text at top of page:
+	if pygame.font:
+		font = pygame.font.Font(None, 25) 
+		text1 = font.render("Help Harley save Earth from an alien invasion!", 2, (255,255,255)) # RGB
+		text2= font.render("KEYS | Arrows to move, & Space Bar to fire.", 2, (255,255,255)) # RGB
+		text3= font.render("Catch the star for extra Health!", 2, (255,255,255)) # RGB
+
+		screen.blit(text1, [280, 30])
+		screen.blit(text2, [290, 60])
+		screen.blit(text3, [350, 90])
+ 
+
+	# Make alien chase Harley
 	for bad_guy in bad_guys:
 		# update the bad guy (based on where the player is)
 		bad_guy.update_me(the_player)
@@ -110,7 +152,7 @@ while game_on: #will run forever (until break)
 	# the_player.draw_me()
 
 	for bullet in bullets:
-		# up date teh bullet location
+		# up date the bullet location
 		bullet.update()
 		# draw the bullet on the screen
 		bullet.draw_bullet()
@@ -126,30 +168,47 @@ while game_on: #will run forever (until break)
 
 	# Harley shoots alien
 	bullet_hit = groupcollide(bullets,bad_guys,True,True) # Bad guy vanishes after collission with bullet
-	# Add another alien after one is killed:
+	if(bullet_hit):
+		points += 1# Add another alien after one is killed:
 	if len(bad_guys) == 0:
 		bad_guys.add(Bad_guy(screen))
 
 	# Alien collides with Harley
 	player_hit = groupcollide(players,bad_guys,False, True) # Bad guy sticks around after collision
 	if (player_hit):
+		bump = pygame.mixer.Sound("bump.aiff")
+		bump.play(0) # Play sound once
+		bump.set_volume(1)
 		player.health -= 2
-		print "Harley has lost %d health points!" % (player.health)
+		print "Harley has %d health points!" % (player.health)
+		
+
 	if (player.health < 0):
-		# font = pygame.font.SysFont("comicsansms", 72)
-		# text = font.render("You've lost the game! Try fighting aliens another day!", True, (0, 128, 0))
-		# print text
 	 	print "You've lost the game! Try fighting aliens another day!"
+	 	# time.sleep(3)
 		game_on = False # Close the game
 
 	# Gain 5 health points from star
 	power_up = groupcollide(players, stars, False, True) # Player remains after collision
 	if (power_up):
-		player.health += 5
-		print "Harley gained %d health points!" % (player.health)
-	# Add another star one one disappears
+		recharge = pygame.mixer.Sound("recharge.wav")
+		recharge.play(0) # Play sound once
+		recharge.set_volume(1)
+		player.health += 3
+		print "Harley has %d health points!" % (player.health)
+
+
+	# Add another star after one disappears
 	if len(stars) == 0:
 		stars.add(Star(screen))
+
+	# Display health counter:
+	text1 = font2.render("HEALTH:  " + str(player.health), True, font_color)
+	screen.blit(text1, [770, 50])
+
+	# Display aliens killed counter
+	text = font2.render("ALIENS KILLED:  " + str(points), True, font_color)
+	screen.blit(text, [770, 80])
 
 
 	# flip the screen, i.e.clear it so we can draw again... and again... and again
