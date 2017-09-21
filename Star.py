@@ -10,7 +10,7 @@ class Star(Sprite):
 	# Because this is a subclass, we need to call the parent's (Sprite) __init__
 	def __init__(self, screen):
 		super(Star,self).__init__()
-		self.image = pygame.image.load("star.png")
+		self.image = pygame.image.load("Images/star.png")
 		self.image = pygame.transform.scale(self.image,(70,70))
 		self.x = random.randint(500, 800)
 		self.y = random.randint(100,600)

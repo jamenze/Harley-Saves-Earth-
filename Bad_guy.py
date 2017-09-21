@@ -5,7 +5,7 @@ from math import hypot
 class Bad_guy(Sprite):
 	def __init__(self,screen):
 		super(Bad_guy,self).__init__()
-		self.image = pygame.image.load('alien.png')
+		self.image = pygame.image.load('Images/alien.png')
 		self.image = pygame.transform.scale(self.image,(80,80))
 		self.x = random.randint(500, 1000)
 		self.y = random.randint(0, 500)
