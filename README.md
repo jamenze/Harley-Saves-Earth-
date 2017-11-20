@@ -21,7 +21,7 @@ Use the arrow keys to move, and the space key to shoot!
 * 
 
 ## Demo
-![Project Screen Shot](public/images/petBasketDemo.gif)
+![Project Screen Shot](public/Images/demo.gif)
 
 ## Code Snippets
 ```
