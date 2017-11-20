@@ -1,9 +1,12 @@
+## Demo
+![alt text](Images/demo.gif "view a demo for Harley Saves Earth!")
+
 ## Overview
 You play Harley, an astronaut-dog and help her defend Earth from an alien invasion!
 
 ## How to Play
-Install Python and Pygame if not already installed.
-Use the arrow keys to move, and the space key to shoot!
+* Install Python and Pygame if not already installed.
+* Use the arrow keys to move, and the space key to shoot!
 
 ## Credit
 * Character art for Harley, Alien, and Star created by [Jennifer Menze](https://github.com/jamenze)
@@ -19,9 +22,6 @@ Use the arrow keys to move, and the space key to shoot!
 ## MVP (Minimum Viable Product)
 * Player can use keyboard to move and shoot
 * 
-
-## Demo
-![alt text](Images/demo.gif "view a demo for Harley Saves Earth!")
 
 ## Code Snippets
 ```
