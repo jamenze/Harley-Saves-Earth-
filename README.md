@@ -1,8 +1,7 @@
 # Harley Saves Earth!
+You play Harley, an astronaut-dog and help her defend Earth from an alien invasion!
 
 ![alt text](Images/demo.gif "view a demo for Harley Saves Earth!")
-
-You play Harley, an astronaut-dog and help her defend Earth from an alien invasion!
 
 ## How to Play
 * Install Python and Pygame if not already installed.
