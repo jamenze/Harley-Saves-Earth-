@@ -21,7 +21,7 @@ Use the arrow keys to move, and the space key to shoot!
 * 
 
 ## Demo
-![Project Screen Shot](public/Images/demo.gif)
+![alt text](Images/demo.gif "view a demo for Harley Saves Earth!")
 
 ## Code Snippets
 ```
