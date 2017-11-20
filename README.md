@@ -1,9 +1,7 @@
 # Harley Saves Earth!
 
-## Demo
 ![alt text](Images/demo.gif "view a demo for Harley Saves Earth!")
 
-## Overview
 You play Harley, an astronaut-dog and help her defend Earth from an alien invasion!
 
 ## How to Play
