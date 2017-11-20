@@ -21,7 +21,8 @@ You play Harley, an astronaut-dog and help her defend Earth from an alien invasi
 
 ## MVP (Minimum Viable Product)
 * Player can use keyboard to move and shoot
-* 
+* Display Player's health, subtract from health if hit by an alien
+* Display amount of aliens killed
 
 ## Code Snippets
 ```
@@ -48,5 +49,3 @@ if (player_hit):
   print "Harley has %d health points!" % (player.health)
     
 ```
-
-
