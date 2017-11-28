@@ -1,5 +1,5 @@
 
-![alt text](Images/demo.gif "view a demo for Harley Saves Earth!")
+![alt text](Images/game_demo.gif "view a demo for Harley Saves Earth!")
 # Harley Saves Earth!
 You play Harley, an astronaut-dog and help her defend Earth from an alien invasion!
 
