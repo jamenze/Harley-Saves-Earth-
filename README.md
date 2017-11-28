@@ -10,9 +10,9 @@ You play Harley, an astronaut-dog and help her defend Earth from an alien invasi
 ## Credit
 * Character art for Harley, Alien, and Star created by [Jennifer Menze](https://github.com/jamenze)
 * Background art credit | hdwallpaperim's [space pixel art](https://hdwallpaperim.com/space-pixel-art-horizon-stars/)
-* Collision Sound effect credit | timgormly's [8-bit Bump.aif](https://freesound.org/people/timgormly/sounds/170141/)
-* Laser Sound effect credit | 
-* Music credit | joshuaempyre's [Arcade Music Loop.wav](https://freesound.org/people/joshuaempyre/sounds/251461/)
+* Collision Sound effect | timgormly's [8-bit Bump.aif](https://freesound.org/people/timgormly/sounds/170141/)
+* Laser Sound effect | timgormly's [8-bit Laser.aif](https://freesound.org/people/timgormly/sounds/170161/) 
+* Music | joshuaempyre's [Arcade Music Loop.wav](https://freesound.org/people/joshuaempyre/sounds/251461/)
 
 ## Programming Languages used
 * Python
